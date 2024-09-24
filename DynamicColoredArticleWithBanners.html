@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article with Dynamic Colored Banners</title>
+<style>
+    .banner {
+        overflow: hidden;
+        border: 1px solid #000;
+        margin: 20px auto;
+        text-align: center;
+        color: #fff;
+        line-height: 90px;
+        font-size: 24px;
+    }
+    .topBanner, .bottomBanner {
+        height: 90px;
+        width: 728px;
+    }
+    .midBanner {
+        height: 300px;
+        width: 250px;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+</style>
+</head>
+<body>
+<div id="topBanner" class="banner topBanner" style="background-color: #333;">
+    Top Banner 1
+</div>
+<h1>Extended Example Article Title</h1>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquam, nunc sit amet consequat venenatis, enim nibh fermentum nibh, quis sollicitudin nibh lorem at sapien. Praesent vulputate at enim sed vestibulum.
+</p>
+<div id="midBanner" class="banner midBanner" style="background-color: #930;">
+    Middle Banner 1
+</div>
+<p>
+    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin id vehicula magna, et pharetra sapien. Nunc vehicula, elit in fermentum vestibulum, metus odio maximus magna, quis fermentum dolor ante ut nisi.
+</p>
+<p>
+    Donec in ornare ipsum. Vivamus in augue eget nisi venenatis aliquet tempor nec felis. Cras et augue vitae nunc porta aliquam. In ut dolor consectetur, aliquet nulla quis, aliquam risus.
+</p>
+<div id="bottomBanner" class="banner bottomBanner" style="background-color: #306;">
+    Bottom Banner 1
+</div>
+
+<script>
+    var colorsTop = ['#333', '#060', '#006'];
+    var colorsMid = ['#930', '#309', '#903'];
+    var colorsBottom = ['#306', '#630', '#063'];
+    var currentIndexTop = 0;
+    var currentIndexMid = 0;
+    var currentIndexBottom = 0;
+
+    function changeTopBanner() {
+        currentIndexTop = (currentIndexTop + 1) % colorsTop.length;
+        document.getElementById('topBanner').style.backgroundColor = colorsTop[currentIndexTop];
+        document.getElementById('topBanner').innerText = 'Top Banner ' + (currentIndexTop + 1);
+    }
+
+    function changeMidBanner() {
+        currentIndexMid = (currentIndexMid + 1) % colorsMid.length;
+        document.getElementById('midBanner').style.backgroundColor = colorsMid[currentIndexMid];
+        document.getElementById('midBanner').innerText = 'Middle Banner ' + (currentIndexMid + 1);
+    }
+
+    function changeBottomBanner() {
+        currentIndexBottom = (currentIndexBottom + 1) % colorsBottom.length;
+        document.getElementById('bottomBanner').style.backgroundColor = colorsBottom[currentIndexBottom];
+        document.getElementById('bottomBanner').innerText = 'Bottom Banner ' + (currentIndexBottom + 1);
+    }
+
+    setInterval(changeTopBanner, 2000);
+    setInterval(changeMidBanner, 2000);
+    setInterval(changeBottomBanner, 2000);
+</script>
+</body>
+</html>
